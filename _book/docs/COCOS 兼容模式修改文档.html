@@ -1,0 +1,290 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>COCOS 兼容模式修改文档 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="COCOS 兼容模式修改文档.html">
+            
+                <a href="COCOS 兼容模式修改文档.html">
+            
+                    
+                    COCOS 兼容模式修改文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >COCOS 兼容模式修改文档</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+ * @Author: 宋新亮
+ * @Date: 2022-05-27 13:02:00
+ * @email: song.jobmail@gmail.com
+-->
+<h2 id="situation">Situation</h2>
+<p>&#x7528;&#x6237;&#x56E0;&#x65E0;&#x6CD5;&#x542F;&#x7528;webgl&#x7B49;&#x539F;&#x56E0;&#x5173;&#x95ED;GPU&#x540E; CPU&#x8D1F;&#x8F7D;&#x8FC7;&#x9AD8; &#x754C;&#x9762;&#x663E;&#x793A;&#x5361;&#x987F; &#x5982;&#x679C;&#x6539;&#x4E3A;canvas&#x6E32;&#x67D3; &#x80FD;&#x663E;&#x8457;&#x63D0;&#x5347;FPS</p>
+<h2 id="task">Task</h2>
+<p><img src="res/image/COCOS &#x517C;&#x5BB9;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x6587;&#x6863;/&#x56FE;&#x7247;1.png" alt=""></p>
+<p>Cocos Creator&#x5728;v1.0&#x4E2D;&#x652F;&#x6301;webgl&#x548C;canvas&#x4E24;&#x79CD;&#x6E32;&#x67D3;&#x6A21;&#x5F0F;&#xFF0C;&#x4F46;&#x662F;&#x5728;2.0&#x7248;&#x672C;&#x5F15;&#x64CE;&#x4EE3;&#x7801;&#x5927;&#x90E8;&#x5206;&#x91CD;&#x5199;&#x540E;&#x5E9F;&#x5F03;&#x4E86;canvas&#x6E32;&#x67D3;&#x3002;</p>
+<p>&#x7ECF;&#x8C03;&#x7814;&#xFF0C;ccc2.x&#x5F15;&#x5165;&#x4E86;effect&#x548C;material&#x4E24;&#x4E2A;&#x8D44;&#x6E90;&#x53BB;&#x5904;&#x7406;&#x4E4B;&#x524D;blendFunc(&#x989C;&#x8272;&#x6DF7;&#x5408;&#x6A21;&#x5F0F;)&#xFF0C;&#x6240;&#x6709;&#x7684;&#x6D3E;&#x751F;&#x81EA;RenderComponent&#x7684;&#x6E32;&#x67D3;&#x7C7B;&#x7EC4;&#x4EF6;&#x90FD;&#x4F1A;&#x4F7F;&#x7528;&#x8FD9;&#x4E24;&#x4E2A;&#x8D44;&#x6E90;&#xFF0C;&#x5224;&#x65AD;&#x82E5;&#x4E3A;canvas&#x6E32;&#x67D3;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x5219;&#x76F8;&#x5E94;&#x4EE3;&#x7801;&#x4E0D;&#x751F;&#x6548;&#x3002;</p>
+<p>Cocos Creator&#x5E95;&#x5C42;&#x652F;&#x6301;canvas&#x6E32;&#x67D3;&#x7684;&#x5E38;&#x89C4;&#x7EC4;&#x4EF6;&#x6709;label&#xFF0C;sprite&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x7EC4;&#x4EF6;&#x4F1A;&#x5224;&#x65AD;&#x6E32;&#x67D3;&#x6A21;&#x5F0F;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x8981;&#x7528;&#x5230;&#x7C7B;&#x4F3C;&#x56FE;&#x7247;&#x7F6E;&#x7070;&#x7B49;&#x60C5;&#x51B5;&#xFF0C;&#x53EF;&#x80FD;&#x65E0;&#x6CD5;&#x8FDB;&#x884C;&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x4F7F;&#x7528;mask&#x548C;graphics&#x7EC4;&#x4EF6;&#xFF0C;&#x67D0;&#x4E9B;&#x4F8B;&#x5982;mask&#x7684;Alpha &#x9608;&#x503C;&#x3001;&#x53CD;&#x5411;&#x906E;&#x7F69;&#x7B49;&#x529F;&#x80FD;&#x4E5F;&#x662F;&#x4E0D;&#x652F;&#x6301;&#x4F7F;&#x7528;&#x7684;&#xFF0C;camera&#x529F;&#x80FD;&#x4E5F;&#x662F;&#x57FA;&#x4E8E;webgl&#x7684;&#xFF0C;&#x4E0D;&#x652F;&#x6301;canvas&#x6E32;&#x67D3;&#x6A21;&#x5F0F;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x6211;&#x4EEC;&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x5F3A;&#x5236;&#x542F;&#x7528;canvas&#x6E32;&#x67D3;&#x754C;&#x9762;&#x540E;&#x76EE;&#x524D;&#x7684;&#x5F02;&#x5E38;&#x6709;&#xFF1A;</p>
+<ul>
+<li>&#x4E5D;&#x5BAB;&#x683C;&#x663E;&#x793A;&#x5F02;&#x5E38;</li>
+</ul>
+<p><img src="res/image/COCOS &#x517C;&#x5BB9;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x6587;&#x6863;/&#x56FE;&#x7247;2.png" alt=""></p>
+<ul>
+<li>&#x90E8;&#x5206;&#x56FE;&#x7247;&#x5750;&#x6807;&#x4F4D;&#x7F6E;&#x504F;&#x79FB;&#xFF0C;BMFont&#x5B57;&#x4F53;&#x65E0;&#x6CD5;&#x663E;&#x793A;</li>
+</ul>
+<p><img src="res/image/COCOS &#x517C;&#x5BB9;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x6587;&#x6863;/&#x56FE;&#x7247;3.png" alt=""></p>
+<ul>
+<li>webview&#x4F4D;&#x7F6E;&#x65E0;&#x6CD5;&#x6539;&#x53D8;</li>
+</ul>
+<p><img src="res/image/COCOS &#x517C;&#x5BB9;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x6587;&#x6863;/&#x56FE;&#x7247;4.png" alt=""></p>
+<ul>
+<li>&#x56FE;&#x7247;&#x88AB;&#x62C9;&#x4F38;&#x53D8;&#x5F62;</li>
+</ul>
+<p><img src="res/image/COCOS &#x517C;&#x5BB9;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x6587;&#x6863;/&#x56FE;&#x7247;5.png" alt=""></p>
+<ul>
+<li>&#x4E8C;&#x7EF4;&#x7801;&#x65E0;&#x6CD5;&#x663E;&#x793A;</li>
+</ul>
+<p><img src="res/image/COCOS &#x517C;&#x5BB9;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x6587;&#x6863;/&#x56FE;&#x7247;6.png" alt=""></p>
+<h2 id="action">Action</h2>
+<p>1&#x3001;&#x9996;&#x5148;&#x5904;&#x7406;&#x7684;&#x662F;&#x56FE;&#x7247;&#x5750;&#x6807;&#x4E0D;&#x5BF9;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x7ECF;&#x5BF9;&#x6BD4;&#x53D1;&#x73B0;&#xFF0C;&#x6240;&#x6709;&#x5750;&#x6807;&#x6709;&#x95EE;&#x9898;&#x7684;&#x56FE;&#x90FD;&#x662F;&#x4FEE;&#x6539;&#x4E86;&#x951A;&#x70B9;&#xFF08;&#x6BD4;&#x5982; &#x9700;&#x8981;&#x6CBF;&#x56FE;&#x7247;&#x67D0;&#x4E00;&#x7279;&#x5B9A;&#x70B9;&#x505A;&#x65CB;&#x8F6C;&#x52A8;&#x753B;&#xFF09;&#x7684;&#xFF0C; &#x800C;&#x5728;&#x65B0;&#x5EFA;&#x7684;demo&#x4E2D;&#x4FEE;&#x6539;&#x951A;&#x70B9;&#x5F00;&#x542F;canvas&#x540E;&#x5E76;&#x6CA1;&#x6709;&#x5750;&#x6807;&#x4F4D;&#x7F6E;&#x504F;&#x79FB;&#x95EE;&#x9898;&#xFF0C;&#x8FDB;&#x4E00;&#x6B65;&#x89C2;&#x5BDF;&#x53D1;&#x73B0;&#xFF0C;&#x6709;&#x95EE;&#x9898;&#x7684;&#x56FE;&#x90FD;&#x5728;&#x5408;&#x56FE;&#x4E2D;&#x88AB;&#x65CB;&#x8F6C;&#x4E86;&#xFF0C;&#x5E76;&#x4E14;&#x90A3;&#x4E9B;&#x65E0;&#x6CD5;&#x663E;&#x793A;&#x7684;bmfont&#x5B57;&#x4F53;&#x5747;&#x5728;&#x5408;&#x56FE;&#x4E2D;&#x88AB;&#x65CB;&#x8F6C;&#x4E86;&#x3002;&#x603B;&#x7ED3;&#xFF0C;&#x5728;canvas&#x6E32;&#x67D3;&#x5668;&#x4E0A;&#xFF0C;&#x56FE;&#x96C6;&#x7684;&#x65CB;&#x8F6C;&#x4E0E;&#x8282;&#x70B9;&#x7684;&#x65CB;&#x8F6C;&#x5B58;&#x5728;&#x51B2;&#x7A81;&#xFF0C;&#x5F53;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x951A;&#x70B9;&#x65F6;&#xFF0C;&#x4E0D;&#x80FD;&#x5F00;&#x542F;&#x5408;&#x56FE;&#x65CB;&#x8F6C;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x7981;&#x6389;&#x5408;&#x56FE;&#x4E2D;&#x7684;&#x65CB;&#x8F6C;&#x53EF;&#x4EE5;&#x89C4;&#x907F;canvas&#x6A21;&#x5F0F;&#x4E0B;&#x8BBE;&#x7F6E;&#x951A;&#x70B9;&#x5931;&#x6548;&#x5BFC;&#x81F4;&#x5750;&#x6807;&#x504F;&#x79FB;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<p>2&#x3001;&#x7B2C;&#x4E8C;&#x4E2A;&#x5904;&#x7406;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x662F;webview&#x7EC4;&#x4EF6;&#x8BBE;&#x7F6E;&#x5750;&#x6807;&#x4E0D;&#x751F;&#x6548;&#xFF0C;webview&#x7EC4;&#x4EF6;&#x59CB;&#x7EC8;&#x663E;&#x793A;&#x5728;&#x5DE6;&#x4E0B;&#x89D2;&#x3002;&#x7ECF;&#x4E0E;cocos&#x5B98;&#x65B9;&#x7814;&#x53D1;&#x4EBA;&#x5458;&#x6C9F;&#x901A;&#xFF0C;&#x540C;&#x6B65;&#x5E95;&#x5C42;CCamera&#x4E2D;&#x7684;webgl&#x65B9;&#x6CD5;&#x7ED9;canvas&#x540E;webview&#x7EC4;&#x4EF6;&#x6B63;&#x5E38;&#x663E;&#x793A;&#x3002;&#x4F46;&#x5728;ccc&#x7F16;&#x8F91;&#x5668;&#x4E2D;&#x7EC4;&#x4EF6;&#x6295;&#x5F71;&#x8DDF;&#x968F;&#x9F20;&#x6807;&#x79FB;&#x52A8;&#x6709;&#x70B9;&#x95EE;&#x9898;&#xFF0C;&#x4E0D;&#x5F71;&#x54CD;&#x7528;&#x6237;&#x3002;</p>
+<p>3&#x3001;&#x7B2C;&#x4E09;&#x4E2A;&#x5904;&#x7406;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x662F;&#x90E8;&#x5206;&#x56FE;&#x7247;&#x88AB;&#x62C9;&#x4F38;&#x53D8;&#x5F62;&#x3002;&#x89C2;&#x5BDF;&#x53D1;&#x73B0;&#xFF0C;&#x8D70;&#x5F62;&#x56FE;&#x7247;&#x5728;&#x8BBE;&#x7F6E;&#x4E2D;&#x90FD;&#x53D6;&#x6D88;&#x4E86;trim&#xFF0C;trim&#x7684;&#x529F;&#x80FD;&#x662F;&#x53BB;&#x9664;&#x8282;&#x70B9;&#x7EA6;&#x675F;&#x6846;&#x5185;&#x7684;&#x900F;&#x660E;&#x533A;&#x57DF;&#xFF0C;&#x5E95;&#x5C42;&#x9ED8;&#x8BA4;&#x5F00;&#x542F;trim&#x3002;&#x4F46;&#x5728;&#x67D0;&#x4E9B;&#x573A;&#x666F;&#x4E0B;&#xFF08;&#x6BD4;&#x5982;&#x5E27;&#x52A8;&#x753B;&#x3001;&#x5934;&#x50CF;&#x6846;&#x7B49;&#xFF09;&#x4E0D;&#x80FD;&#x53BB;&#x9664;&#x900F;&#x660E;&#x533A;&#x57DF;&#x3002;&#x5728;canvas&#x6A21;&#x5F0F;&#x4E0B;&#x4E0D;&#x5F00;&#x542F;trim&#xFF0C;&#x754C;&#x9762;&#x6CA1;&#x6709;&#x663E;&#x793A;&#x900F;&#x660E;&#x533A;&#x57DF;&#x800C;&#x662F;&#x8BA9;&#x56FE;&#x7247;&#x62C9;&#x4F38;&#x5360;&#x6EE1;&#x900F;&#x660E;&#x533A;&#x57DF;&#x3002;&#x7ECF;&#x4E0E;cocos&#x5B98;&#x65B9;&#x7814;&#x53D1;&#x4EBA;&#x5458;&#x6C9F;&#x901A;&#xFF0C;&#x4FEE;&#x6539;canvas&#x6A21;&#x5F0F;&#x4E0B;sprite&#x7684;simple.js&#x4E2D;&#x77E9;&#x9635;&#x53D8;&#x6362;&#x8BA1;&#x7B97;&#x516C;&#x5F0F;&#x89E3;&#x51B3;&#x4E86;Size Mode&#x4E3A;raw(&#x53D6;&#x539F;&#x59CB;&#x56FE;&#x7247;&#x672A;&#x88C1;&#x5207;&#x7684;&#x5C3A;&#x5BF8;)&#x6A21;&#x5F0F;&#x4E0B;&#x7684;&#x56FE;&#x7247;&#x62C9;&#x4F38;&#x95EE;&#x9898;&#x3002;&#x4F46;&#x5982;&#x679C;&#x60F3;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x5C3A;&#x5BF8;&#xFF0C;&#x5219;&#x8BBE;&#x7F6E;&#x7684;&#x5BBD;&#x9AD8;&#x4E0D;&#x751F;&#x6548;&#x3002;&#x76EE;&#x524D;&#x5BA2;&#x6237;&#x7AEF;&#x8FD9;&#x79CD;&#x573A;&#x666F;&#x8F83;&#x5C11;&#xFF0C;&#x53EF;&#x4EE5;&#x6682;&#x65F6;&#x7528;&#x7F29;&#x653E;&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x7F29;&#x653E;&#x7684;&#x524D;&#x63D0;&#x662F;&#x8981;&#x4FDD;&#x8BC1;&#x7F51;&#x7EDC;&#x8D44;&#x6E90;&#x4E0A;&#x4F20;&#x7684;&#x89C4;&#x8303;&#x3002;</p>
+<p>4&#x3001;&#x7B2C;&#x56DB;&#x4E2A;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x662F;&#x4E8C;&#x7EF4;&#x7801;&#x65E0;&#x6CD5;&#x663E;&#x793A;&#x7684;&#x95EE;&#x9898;&#x3002;&#x539F;&#x4E8C;&#x7EF4;&#x7801;&#x662F;&#x4F7F;&#x7528;ccc&#x7684;Graphics&#x7EC4;&#x4EF6;&#x5B8C;&#x6210;&#xFF0C;&#x800C;ccc&#x5728;canvas&#x6A21;&#x5F0F;&#x4E0B;&#x662F;&#x4E0D;&#x652F;&#x6301;Graphics&#x7EC4;&#x4EF6;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x80FD;&#x901A;&#x8FC7;sprite&#x65B9;&#x5F0F;&#x6765;&#x7ED8;&#x5236;&#x3002;&#x66F4;&#x65B0;&#x4E86;qrcode&#x63D2;&#x4EF6;&#x540E;&#xFF0C;&#x7ECF;&#x8FC7;&#x5BF9;qrcode.js&#x7684;&#x7814;&#x7A76;&#xFF0C;&#x6211;&#x5728;&#x63D2;&#x4EF6;&#x4E2D;&#x5C01;&#x88C5;&#x4E86;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x4F20;&#x5165;ccc&#x7684;node&#x540E;&#x76F4;&#x63A5;&#x751F;&#x6210;&#x4E8C;&#x7EF4;&#x7801;&#x5E76;&#x5C55;&#x793A;&#x5728;node&#x4E0A;&#x3002;
+<img src="res/image/COCOS &#x517C;&#x5BB9;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x6587;&#x6863;/&#x56FE;&#x7247;7.png" alt=""></p>
+<p>5&#x3001;&#x7B2C;&#x4E94;&#x4E2A;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x662F;&#x4E5D;&#x5BAB;&#x683C;&#x95EE;&#x9898;&#x3002;&#x5728;ccc1.x&#x7248;&#x672C;&#x4E0A;&#x662F;&#x652F;&#x6301;canvas&#x6E32;&#x67D3;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5F53;&#x65F6;&#x7684;&#x7248;&#x672C;&#x4E5D;&#x5BAB;&#x683C;&#x4E5F;&#x662F;&#x6709;&#x663E;&#x793A;&#x95EE;&#x9898;&#x7684;&#xFF0C;&#x5373;&#x5728;canvas&#x6A21;&#x5F0F;&#x4E0B;&#x65E0;&#x6CD5;&#x5BF9;0&#x50CF;&#x7D20;&#x8FDB;&#x884C;&#x62C9;&#x4F38;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x68C0;&#x7D22;&#x8BBE;&#x7F6E;&#x4E86;0&#x50CF;&#x7D20;&#x4E5D;&#x5BAB;&#x683C;&#x7684;meta&#x6587;&#x4EF6;&#x6539;&#x4E3A;&#x4E86;1&#x50CF;&#x7D20;&#x3002;&#x8BBE;&#x7F6E;1&#x50CF;&#x7D20;&#x540E;&#x5BA2;&#x6237;&#x7AEF;&#x4E0A;&#x7684;&#x4E5D;&#x5BAB;&#x683C;&#x56FE;&#x7247;&#x5927;&#x90E8;&#x5206;&#x663E;&#x793A;&#x6B63;&#x5E38;&#x4E86;&#x3002;&#x90A3;&#x4E9B;&#x4E0D;&#x6B63;&#x5E38;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x8868;&#x73B0;&#x4E3A;&#x5728;&#x8BBE;&#x7F6E;&#x62C9;&#x4F38;&#x7684;&#x4F4D;&#x7F6E;&#x51FA;&#x73B0;&#x4E86;&#x4E00;&#x6761;&#x9ED1;&#x7EBF;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x3002;&#x7ECF;&#x5206;&#x6790;&#xFF0C;&#x51FA;&#x73B0;&#x9ED1;&#x7EBF;&#x7684;&#x539F;&#x56E0;&#x6709;&#x4E24;&#x79CD;&#xFF1A;&#x7B2C;&#x4E00;&#x79CD;&#xFF08;&#x4E0B;&#x56FE;&#x6807;&#x53F7;1&#xFF09;&#xFF0C;&#x4E3A;&#x5408;&#x56FE;&#x65CB;&#x8F6C;&#x6240;&#x81F4;&#xFF0C;&#x7981;&#x6B62;&#x65CB;&#x8F6C;&#x540E;&#x6B63;&#x5E38;&#xFF1B;&#x7B2C;&#x4E8C;&#x79CD;&#xFF08;&#x4E0B;&#x56FE;&#x6807;&#x53F7;2&#x3001;3&#xFF09;&#xFF0C;&#x662F;&#x5F53;&#x8BBE;&#x7F6E;&#x7684;&#x9AD8;/&#x5BBD;&#x4E0E;&#x539F;&#x56FE;&#x7684;&#x9AD8;/&#x5BBD;&#x76F8;&#x7B49;&#x65F6;&#xFF0C;&#x4E2D;&#x95F4;&#x4E5F;&#x4F1A;&#x51FA;&#x73B0;&#x4E00;&#x9053;&#x9ED1;&#x7EBF;&#xFF0C;&#x6240;&#x4EE5;&#x5F53;&#x8BBE;&#x7F6E;&#x7B49;&#x9AD8;/&#x5BBD;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x56FE;&#x7247;&#x4E0D;&#x80FD;&#x8BBE;&#x7F6E;&#x9AD8;/&#x5BBD;&#x5411;&#x7684;&#x4E5D;&#x5BAB;&#x683C;&#x3002;
+<img src="res/image/COCOS &#x517C;&#x5BB9;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x6587;&#x6863;/&#x56FE;&#x7247;8.png" alt=""></p>
+<p>6&#x3001;&#x6839;&#x636E;GPU&#x72B6;&#x6001;&#x5F00;&#x542F;&#x4E0D;&#x540C;&#x7684;&#x6E32;&#x67D3;&#x6A21;&#x5F0F;
+<img src="res/image/COCOS &#x517C;&#x5BB9;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x6587;&#x6863;/&#x56FE;&#x7247;9.png" alt=""></p>
+<p>7&#x3001;&#x8BBE;&#x7F6E;&#x5E27;&#x7387;&#x4E3A;30</p>
+<p>8&#x3001;fps&#x57CB;&#x70B9;&#x4E0A;&#x4F20;&#x65B9;&#x4FBF;&#x5BF9;&#x6BD4;&#x6570;&#x636E;</p>
+<h2 id="result">Result</h2>
+<p>&#x4EE5;&#x4E0A;&#x6240;&#x505A;&#x7684;&#xFF0C;&#x5305;&#x62EC;ccc&#x7684;&#x5F15;&#x64CE;&#x4EE3;&#x7801;&#x6539;&#x52A8;&#x3001;&#x63D2;&#x4EF6;&#x5C01;&#x88C5;&#x3001;&#x5408;&#x56FE;&#x8BBE;&#x7F6E;&#x3001;&#x4E5D;&#x5BAB;&#x683C;&#x8BBE;&#x7F6E;&#x3001;&#x8D44;&#x6E90;&#x66FF;&#x6362;&#x7B49;&#x90FD;&#x80FD;&#x517C;&#x5BB9;canvas&#x548C;webgl&#x4E24;&#x79CD;&#x6A21;&#x5F0F;&#xFF0C;&#x65E0;&#x987B;&#x5355;&#x72EC;&#x7EF4;&#x62A4;&#x7248;&#x672C;&#x3002;</p>
+<p>&#x7981;&#x7528;gpu&#x540E;webgl&#x6E32;&#x67D3;&#xFF1A;
+<img src="res/image/COCOS &#x517C;&#x5BB9;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x6587;&#x6863;/&#x56FE;&#x7247;10.png" alt=""></p>
+<p>&#x7981;&#x7528;gpu&#x540E;canvas&#x6E32;&#x67D3;&#xFF1A;
+<img src="res/image/COCOS &#x517C;&#x5BB9;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x6587;&#x6863;/&#x56FE;&#x7247;11.png" alt=""></p>
+<p>&#x5982;&#x4E0A;&#x5BF9;&#x6BD4;&#x56FE;&#xFF0C;fps&#x63D0;&#x5347;&#x56DB;&#x500D;&#x5DE6;&#x53F3;&#x3002;</p>
+<p>fps&#x4F4E;&#x5E27;&#xFF08;&lt;20&#xFF09;&#x6BD4;&#x7387;&#x7EA6;&#x4E3A;7%
+<img src="res/image/COCOS &#x517C;&#x5BB9;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x6587;&#x6863;/&#x56FE;&#x7247;12.png" alt=""></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"COCOS 兼容模式修改文档","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/COCOS 兼容模式修改文档.md","mtime":"2022-05-27T05:22:12.097Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-27T05:23:04.758Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
